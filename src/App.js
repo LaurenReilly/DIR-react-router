@@ -13,6 +13,11 @@ import {Link, Route, Switch} from 'react-router-dom'
 //if you go to a route you haven't defined it will show the page not found component
 //useful when you are dynamically generating routes and one might go wrong, you can have this default page that shows when they go to a route that doesn't exist.
 
+
+
+//to pass custom props to a Routed Component you need a technique called render props.
+//a function that accepts props that renders JSX, route automatically has history,match,location
+
 function App() {
   return (
     <div className="App">
@@ -27,6 +32,9 @@ function App() {
         <Route component={PageNotFound}/>
       </Switch>
       <Route path="/cats/:cat" component={Cat}/>
+      <Route path="/felines" 
+        render={(props) =>(<Cats {...props} cats={this.state.cats}/>)}
+        />
     </div>
   );
 }
