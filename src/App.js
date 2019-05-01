@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Home from './components/Home';
 import Cats from './components/Cats';
+import Cat from './components/Cat';
 import About from './components/About';
 import PageNotFound from './components/PageNotFound';
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/cats" component={Cats}/>
         <Route component={PageNotFound}/>
       </Switch>
+      <Route path="/cats/:cat" component={Cat}/>
     </div>
   );
 }
